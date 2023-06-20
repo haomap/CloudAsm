@@ -1,40 +1,42 @@
-     <!-- Bootstrap --> 
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+<!-- Bootstrap --> 
+<link rel="stylesheet" type="text/css" href="style.css"/>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	    
 	<?php
-		include_once("Connection.php");
-		if(isset($_POST["bntAdd"]))
+		include_once("connection.php");
+		if(isset($_POST["btnAdd"]))
 		{
 				$id = $_POST["txtID"];
 				$name = $_POST["txtName"];
-				$des =	$_POST["txtDes"];
-				$err = "";
-				if($id=="")
-				{
-					$err .="<li>Enter Category ID, please</li>";
+				$des = $_POST["txtDes"];
+				$err="";
+				if($id==""){
+					$err.="<li>Enter Category ID, please</li>";
 				}
-				if($name=="")
-				{
-					$err .="<li>Enter Category Name, please</li>";
+				if($name==""){
+					$err.="<li>Enter Category Name, please</li>";
 				}
-				if($err!="")
-				{
+				if($err!=""){
 					echo "<ul>$err</ul>";
 				}
 				else{
-					$sq = "Select * from category where Cat_ID = '$id' or Cat_Name = '$name'";
-					$result = mysqli_query($conn, $sq);
-					if(mysqli_num_row($result)==0)
+					$id = htmlspecialchars(mysqli_real_escape_string($conn, $id));
+					$name = htmlspecialchars(mysqli_real_escape_string($conn, $name));
+					$des = htmlspecialchars(mysqli_real_escape_string($conn, $des));
+					$sq="Select * from category where Cat_ID='$id' or Cat_Name='$name'";
+					$result = mysqli_query($conn,$sq);
+					if(mysqli_num_rows($result)==0)
 					{
-						mysqli_query($conn, "INSERT INTO category (Cat_ID, Cat_Name, Cat_Des) VALUES ('$id', '$name', '$des')");
-						echo '<meta http-equiv="refresh" content="0;URL=Category_Management.php"/>';
+						mysqli_query($conn, "INSERT INTO category (Cat_ID, Cat_Name, Cat_Des) VALUES ('$id','$name','$des')");
+						echo '<meta http-equiv="refresh" content="0;URL=index.php?page=category_management"/>';
 					}
-					else{
+					else
+					{
 						echo "<li>Duplicate category ID or Name</li>";
+
 					}
-				}	
+				}
 		}
 	?>
 
@@ -44,13 +46,13 @@
 				 <div class="form-group">
 						    <label for="txtTen" class="col-sm-2 control-label">Category ID(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtID" id="txtID" class="form-control" placeholder="Catepgy ID" value='<?php echo isset($_POST["txtID"])?($_POST["txtID"]):"";?>'>
+							      <input type="text" name="txtID" id="txtID" class="form-control" placeholder="Category ID" value='<?php echo isset($_POST["txtID"])?($_POST["txtID"]):"";?>'>
 							</div>
 					</div>	
 				 <div class="form-group">
 						    <label for="txtTen" class="col-sm-2 control-label">Category Name(*):  </label>
 							<div class="col-sm-10">
-							      <input type="text" name="txtName" id="txtName" class="form-control" placeholder="Catepgy Name" value='<?php echo isset($_POST["txtName"])?($_POST["txtName"]):"";?>'>
+							      <input type="text" name="txtName" id="txtName" class="form-control" placeholder="Category Name" value='<?php echo isset($_POST["txtName"])?($_POST["txtName"]):"";?>'>
 							</div>
 					</div>
                     
