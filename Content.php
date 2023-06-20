@@ -7,7 +7,7 @@ include_once("connection.php");
 			<div class="block-slider block-slider4">
 				<ul class="" id="bxslider-home4">
 					<li>
-						<img src="img/h4-slide.png" alt="Slide">
+						<img src="img/hinh4.jpg" alt="Slide">
 						<div class="caption-group">
 							<h2 class="caption title">
 								iPhone <span class="primary">6 <strong>Plus</strong></span>
@@ -50,15 +50,15 @@ include_once("connection.php");
     
     <!--Gioi thieu cac chuc nang-->
     
-    <div class="promo-area">
+    <!-- <div class="promo-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo promo1">
                         <i class="fa fa-refresh"></i>
-                        <p>Exchange, return every 30 days</p>
-                    </div>
+                        <!-- <p>Exchange, return every 30 days</p> -->
+                    <!-- </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="single-promo promo2">
@@ -79,8 +79,8 @@ include_once("connection.php");
                     </div>
                 </div>
             </div>
-        </div>
-    </div> <!-- End promo area -->
+        </div> -->
+    <!-- </div> End promo area  -->
     
     
     <div class="maincontent-area">

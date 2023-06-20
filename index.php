@@ -262,7 +262,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2020 ABC-Electronics supermarket</p>
+                        <p>&copy; 2020 ABC-Toys supermarket</p>
                     </div>
                 </div>
                 
